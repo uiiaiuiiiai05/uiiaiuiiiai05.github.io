@@ -1,0 +1,4 @@
+.opencode/
+*.png.bak
+.DS_Store
+Thumbs.db

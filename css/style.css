@@ -1,0 +1,1223 @@
+/* ==========================================================
+   Superr — Style Reference Implementation
+   Warm schoolyard notebook aesthetic for Pimphakan Klinhom
+   ========================================================== */
+
+/* ── 1. Tokens ── */
+:root {
+  /* Colors */
+  --color-cream-paper:        #fdfbf9;
+  --color-charcoal:           #171717;
+  --color-cocoa-ink:          #2b1a07;
+  --color-true-black:         #000000;
+  --color-dew-drop:           #f7efe9;
+  --color-marker-orange:      #ff6f1e;
+  --color-burnt-sienna:       #ce500a;
+  --color-sky-sticker:        #3b82f6;
+  --color-bubblegum-sticker:  #ff66cf;
+  --color-sprout-sticker:     #22c55e;
+  --color-shadow-mist:        #bebcbb;
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Kanit', serif;
+  --font-body:    'Kanit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-script:  'Caveat', 'Kanit', cursive;
+
+  /* Spacing */
+  --spacing-4:   4px;
+  --spacing-8:   8px;
+  --spacing-12:  12px;
+  --spacing-16:  16px;
+  --spacing-20:  20px;
+  --spacing-24:  24px;
+  --spacing-32:  32px;
+  --spacing-48:  48px;
+  --spacing-64:  64px;
+
+  /* Border Radii */
+  --radius-cards:   16px;
+  --radius-buttons: 20px;
+  --radius-tags:    20px;
+  --radius-sticker: 8px;
+  --radius-footer:  56px;
+
+  /* Shadows */
+  --shadow-card:    rgba(0, 0, 0, 0.06) 0px 2px 20px 0px;
+  --shadow-subtle:  rgba(0, 0, 0, 0.25) 0px 1px 2px 0px;
+  --transition:     0.25s ease;
+}
+
+/* ── 2. Reset & Base ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream-paper);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── 3. Scrollbar ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-cream-paper); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-shadow-mist);
+  border-radius: 4px;
+  border: 2px solid var(--color-cream-paper);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-marker-orange); }
+
+/* ── 4. Typography Helpers ── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--color-cocoa-ink);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.lowercase-title {
+  text-transform: lowercase;
+}
+
+.marker-highlight {
+  color: var(--color-marker-orange);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.marker-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 111, 30, 0.25);
+  border-radius: 4px;
+  z-index: -1;
+  transform: rotate(-1deg);
+}
+
+.script-caption {
+  font-family: var(--font-script);
+  font-size: 1.4rem;
+  color: var(--color-marker-orange);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+/* ── 5. Layout Container ── */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-alt {
+  background-color: var(--color-dew-drop);
+  border-top: 1.5px solid rgba(23, 23, 23, 0.08);
+  border-bottom: 1.5px solid rgba(23, 23, 23, 0.08);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-burnt-sienna);
+  font-size: 1.1rem;
+  margin-bottom: 48px;
+}
+
+/* ── 6. Pill Action Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 28px;
+  border-radius: var(--radius-buttons);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--color-cream-paper);
+  color: var(--color-charcoal);
+  border: 1.5px solid var(--color-charcoal);
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.btn-marker {
+  background-color: var(--color-marker-orange);
+  color: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-marker:hover {
+  background-color: var(--color-burnt-sienna);
+  transform: translateY(-2px);
+}
+
+/* ── 7. Navbar ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(253, 251, 249, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1.5px solid var(--color-charcoal);
+  padding: 16px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  font-family: var(--font-display);
+}
+
+.nav-brand-mark .hand-icon {
+  font-size: 1.8rem;
+  color: var(--color-marker-orange);
+  transition: transform var(--transition);
+}
+
+.nav-brand-mark:hover .hand-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-buttons);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--color-dew-drop);
+  color: var(--color-marker-orange);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-toggle {
+  display: flex;
+  gap: 2px;
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-buttons);
+  padding: 3px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.lang-btn {
+  padding: 4px 12px;
+  border-radius: var(--radius-buttons);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  transition: var(--transition);
+}
+
+.lang-btn.active {
+  background: var(--color-charcoal);
+  color: var(--color-cream-paper);
+}
+
+/* ── 8. Hero Section (Schoolyard Notebook) ── */
+#hero {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+  position: relative;
+  background: var(--color-cream-paper);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-handwritten-note {
+  margin-bottom: 12px;
+}
+
+.hero-display-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.05;
+  color: var(--color-cocoa-ink);
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.hero-description {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.hero-caption-note {
+  font-size: 14px;
+  color: var(--color-burnt-sienna);
+}
+
+/* Notebook Container */
+.hero-notebook-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.notebook-object {
+  width: 100%;
+  max-width: 360px;
+  background: linear-gradient(145deg, #784725, #4a270f);
+  border-radius: 16px;
+  border: 2px solid var(--color-charcoal);
+  box-shadow: 12px 16px 30px rgba(43, 26, 7, 0.25);
+  transform: rotate(4deg);
+  position: relative;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  transition: transform 0.4s ease;
+}
+
+.notebook-object:hover {
+  transform: rotate(1deg) scale(1.02);
+}
+
+.notebook-ribbon {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 20px;
+  height: 90px;
+  background-color: var(--color-marker-orange);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.name-label-sticker {
+  background: #ffffff;
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-sticker);
+  padding: 18px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: rotate(-3deg);
+  margin-top: 50px;
+}
+
+.sticker-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  border-bottom: 1.5px solid var(--color-charcoal);
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+.sticker-field {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--color-charcoal);
+}
+
+.sticker-field .label {
+  font-weight: 600;
+  min-width: 48px;
+}
+
+.sticker-field .value {
+  font-family: var(--font-script);
+  font-size: 1.3rem;
+  color: var(--color-cocoa-ink);
+  border-bottom: 1px dashed var(--color-shadow-mist);
+  flex-grow: 1;
+}
+
+.notebook-footer-tag {
+  text-align: right;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+}
+
+/* ── 9. Stickers Positioning ── */
+.sticker {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 2px solid var(--color-charcoal);
+  border-radius: var(--radius-tags);
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 2px 3px 0px var(--color-charcoal);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.sticker-lightning {
+  background-color: var(--color-sky-sticker);
+  color: #fff;
+  transform: rotate(12deg);
+  top: 0px;
+  right: 15px;
+}
+
+.sticker-bear {
+  background-color: var(--color-bubblegum-sticker);
+  color: #fff;
+  transform: rotate(-10deg);
+  bottom: 0px;
+  left: 15px;
+}
+
+.sticker-heart {
+  background-color: var(--color-marker-orange);
+  color: #fff;
+  transform: rotate(8deg);
+  top: 45%;
+  right: -10px;
+}
+
+/* ── 10. About Section ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.polaroid-frame {
+  background: #ffffff;
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-cards);
+  padding: 20px 20px 36px 20px;
+  box-shadow: 4px 6px 0px var(--color-charcoal);
+  transform: rotate(-2deg);
+  position: relative;
+  transition: transform var(--transition);
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg);
+}
+
+.polaroid-img-box {
+  position: relative;
+}
+
+.polaroid-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.polaroid-img-box {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--color-dew-drop);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+}
+
+.polaroid-caption {
+  font-family: var(--font-script);
+  font-size: 1.4rem;
+  color: var(--color-cocoa-ink);
+  text-align: center;
+  margin-top: 16px;
+}
+
+.about-facts-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.fact-tag {
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-tags);
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.fact-tag .iconify {
+  color: var(--color-marker-orange);
+  font-size: 18px;
+}
+
+/* ── 11. Skills Section ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.skill-note-card {
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-cards);
+  padding: 32px;
+  box-shadow: 3px 4px 0px var(--color-charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  transition: transform var(--transition);
+}
+
+.skill-note-card:hover {
+  transform: translateY(-4px);
+}
+
+.skill-card-badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-marker-orange);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--color-marker-orange);
+  padding-bottom: 2px;
+  text-align: center;
+}
+
+.skill-items-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.skill-pill {
+  background: var(--color-dew-drop);
+  border: 1px solid var(--color-charcoal);
+  border-radius: var(--radius-tags);
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ── 12. Timeline Section ── */
+.notebook-timeline {
+  max-width: 720px;
+  margin: 0 auto;
+  border-left: 2px dashed var(--color-charcoal);
+  padding-left: 32px;
+}
+
+.timeline-entry {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-entry::before {
+  content: '📌';
+  position: absolute;
+  left: -46px;
+  top: 2px;
+  font-size: 20px;
+}
+
+.timeline-date-tag {
+  font-family: var(--font-script);
+  font-size: 1.35rem;
+  color: var(--color-marker-orange);
+  margin-bottom: 8px;
+}
+
+.timeline-box {
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-cards);
+  padding: 24px 28px;
+  box-shadow: 3px 4px 0px var(--color-charcoal);
+}
+
+/* ── 13. Projects Section (Fixed Overflow & Button Alignment) ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.project-card {
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+  box-shadow: 4px 5px 0px var(--color-charcoal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-preview {
+  width: 100%;
+  height: 260px;
+  background: var(--color-dew-drop);
+  border-bottom: 1.5px solid var(--color-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.project-preview-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.project-details {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  color: var(--color-cocoa-ink);
+}
+
+.project-desc {
+  font-size: 15px;
+  color: var(--color-charcoal);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.project-bottom-wrap {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tag {
+  background: var(--color-dew-drop);
+  border: 1px solid var(--color-charcoal);
+  padding: 4px 12px;
+  border-radius: var(--radius-tags);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+  border-top: 1px dashed var(--color-shadow-mist);
+  padding-top: 16px;
+}
+
+.project-link-btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1.5px solid var(--color-charcoal);
+  padding-bottom: 2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.project-link-btn:hover {
+  color: var(--color-marker-orange);
+  border-color: var(--color-marker-orange);
+}
+
+/* ── 14. Contact Form ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.contact-card-box {
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-cards);
+  padding: 36px;
+  box-shadow: 4px 5px 0px var(--color-charcoal);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-cocoa-ink);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: var(--color-dew-drop);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-charcoal);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-marker-orange);
+  background: #ffffff;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.social-pill-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-buttons);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--color-charcoal);
+  font-weight: 500;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition);
+}
+
+.social-pill-link:hover {
+  transform: translateX(4px);
+  color: var(--color-marker-orange);
+}
+
+/* ── 15. Footer Brand Band ── */
+.footer-brand-band {
+  background-color: var(--color-marker-orange);
+  border-top-left-radius: var(--radius-footer);
+  border-top-right-radius: var(--radius-footer);
+  border-top: 2px solid var(--color-charcoal);
+  padding: 56px 24px 36px 24px;
+  text-align: center;
+  color: var(--color-cream-paper);
+  position: relative;
+  margin-top: 40px;
+}
+
+.footer-brand-band h3 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-cream-paper);
+  margin-bottom: 12px;
+}
+
+.footer-brand-band p {
+  font-size: 15px;
+  color: rgba(253, 251, 249, 0.9);
+}
+
+/* ── 16. Responsive ── */
+.nav-burger {
+  display: none;
+}
+
+@media (max-width: 840px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+
+  /* ปุ่มแฮมเบอร์เกอร์ — ใช้กรอบ/เงา/มุมโค้งชุดเดิมของ lang-toggle */
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    background: var(--color-cream-paper);
+    border: 1.5px solid var(--color-charcoal);
+    border-radius: var(--radius-buttons);
+    box-shadow: var(--shadow-subtle);
+    cursor: pointer;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 18px;
+    height: 2.5px;
+    border-radius: 4px;
+    background: var(--color-charcoal);
+  }
+
+  /* เมนูเดิม (.nav-links ตัวเดิม) กลายเป็นแผงดรอปดาวน์ ใช้สไตล์ card ชุดเดิม */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    background: var(--color-cream-paper);
+    border: 1.5px solid var(--color-charcoal);
+    border-radius: var(--radius-cards);
+    box-shadow: var(--shadow-card);
+    z-index: 999;
+  }
+
+  .navbar.menu-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+  }
+}
+/* ล็อคการเลื่อนให้นุ่มนวลและไม่โดน Navbar บังหัวข้อ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* เคารพการตั้งค่าลดการเคลื่อนไหวของผู้ใช้ (a11y) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .click-particle {
+    display: none;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* ── 17. Extras: Dark Mode, Theme Toggle, Floating Buttons, Preview Card ── */
+
+/* ปุ่มไอคอนใน navbar (ธีม) — ใช้กรอบ/เงาชุดเดียวกับ lang-toggle */
+.nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 34px;
+  font-size: 15px;
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-buttons);
+  box-shadow: var(--shadow-subtle);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.nav-icon-btn:hover {
+  transform: rotate(-8deg);
+}
+
+/* โหมดมืด — แค่สลับค่า token เดิม ทุกคอมโพเนนต์ปรับตามอัตโนมัติ */
+html.dark {
+  --color-cream-paper:   #26221e;
+  --color-charcoal:      #f2ece4;
+  --color-cocoa-ink:     #f6dfbd;
+  --color-dew-drop:      #322d28;
+  --color-marker-orange: #ff8a3d;
+  --color-burnt-sienna:  #e85f0a;
+  --color-shadow-mist:   #4a453f;
+  color-scheme: dark;
+}
+
+html.dark .navbar {
+  background: rgba(38, 34, 30, 0.92);
+}
+
+/* footer พื้นส้ม — ล็อคตัวอักษรให้ยังอ่านออกในโหมดมืด */
+html.dark .footer-brand-band,
+html.dark .footer-brand-band h3 {
+  color: #fdfbf9;
+}
+
+/* กล่องข้อมูลในการ์ดผลงาน (แทน inline style เดิม ค่าตรงกันทุกอย่างในโหมดสว่าง) */
+.note-box {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.note-box h4 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.note-box p,
+.note-box ul {
+  font-size: 0.85rem;
+  color: #475569;
+  padding-left: 16px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.note-box--amber {
+  background: rgba(254, 243, 199, 0.4);
+  border: 1px solid #fde68a;
+}
+
+.note-box--amber h4 {
+  color: #78350f;
+}
+
+.badge-amber {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.badge-sky {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+
+.sub-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sub-badge--orange { color: #d97706; }
+.sub-badge--slate  { color: #64748b; }
+
+.muted-text { color: #555; }
+
+/* เส้นแบ่งล่างการ์ดผลงาน (ดึงออกจาก inline style) */
+.project-bottom-wrap {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 12px;
+}
+
+/* กรอบรูปผลงาน — แถบกระดาษลายเส้นสมุด รอวันใส่รูปจริง */
+.project-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  z-index: 1;
+}
+
+/* เมื่อรูปพรีวิวโหลดสำเร็จ ซ่อน emoji/hint ที่ทับบนรูป (ถ้ารูปพังจะกลับมาโชว์เป็น fallback) */
+.project-preview:has(.project-preview-img) .project-preview-icon,
+.project-preview:has(.project-preview-img) .project-preview-hint {
+  display: none;
+}
+
+.project-preview-hint {
+  font-family: var(--font-script);
+  font-size: 1.2rem;
+  color: var(--color-marker-orange);
+  transform: rotate(-2deg);
+  margin-top: 4px;
+}
+
+/* ตัวกะพริบของ effect พิมพ์ตัวอักษร */
+.typing-caret::after {
+  content: '|';
+  color: var(--color-marker-orange);
+  animation: caret-blink 0.8s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+/* ปุ่มลอย: เลื่อนขึ้นบน (ขวา) และคัดลอกลิงก์ (ซ้าย) */
+.scroll-top,
+.share-web {
+  position: fixed;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: var(--color-cream-paper);
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-buttons);
+  box-shadow: var(--shadow-subtle);
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.scroll-top { right: 24px; opacity: 0; pointer-events: none; }
+.share-web  { left: 24px; }
+
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-top:hover,
+.share-web:hover {
+  transform: translateY(-3px);
+}
+
+/* โหมดมืด: กล่อง/ป้ายที่สีไม่ได้แวะผ่าน token */
+html.dark .note-box {
+  background: #2e2925;
+  border-color: #4a453f;
+}
+
+html.dark .note-box h4 { color: #f2ece4; }
+html.dark .note-box p,
+html.dark .note-box ul { color: #cfc7bc; }
+
+html.dark .note-box--amber {
+  background: rgba(255, 138, 61, 0.10);
+  border-color: #7a5a2e;
+}
+
+html.dark .note-box--amber h4 { color: #f6dfbd; }
+
+html.dark .badge-amber {
+  background: #3a2f14;
+  color: #ffd98a;
+  border-color: #7a5a2e;
+}
+
+html.dark .badge-sky {
+  background: #12283a;
+  color: #8ecdf5;
+  border-color: #2e5b7d;
+}
+
+html.dark .sub-badge--orange { color: #ffb45e; }
+html.dark .sub-badge--slate  { color: #a9bccb; }
+html.dark .muted-text        { color: #b8b0a6; }
+html.dark .project-bottom-wrap { border-top-color: #4a453f; }
+
+/* สติกเกอร์ชื่อบนสมุด — พื้นการ์ดขาวตลอด จึงล็อคตัวอักษรให้เข้มไว้ใน dark mode */
+html.dark .sticker-header,
+html.dark .sticker-field {
+  color: #171717;
+}
+
+html.dark .sticker-field .value {
+  color: #2b1a07;
+}
+
+/* โพลารอยด์ — พื้นกรอบขาวตลอด ล็อคคำบรรยายให้เข้มใน dark mode */
+html.dark .polaroid-caption {
+  color: #2b1a07;
+}
+
+@media (max-width: 840px) {
+  .scroll-top { right: 16px; bottom: 16px; }
+  .share-web  { left: 16px;  bottom: 16px; }
+}
+/* ── 18. ไอคอน Iconify แทนอิโมจิตกแต่ง (จูนสี/ขนาดให้เข้าธีม — ใช้ token จึงปรับตาม dark mode เอง) ── */
+.sticker iconify-icon {
+  margin-right: 6px;
+  font-size: 1.2em;
+}
+.hero-handwritten-note iconify-icon {
+  margin-right: 4px;
+  vertical-align: -2px;
+  color: var(--color-marker-orange);
+  font-size: 0.9em;
+}
+.hero-caption-note iconify-icon {
+  margin-right: 4px;
+  vertical-align: -2px;
+  color: var(--color-marker-orange);
+}
+.polaroid-img-box iconify-icon {
+  font-size: 4.5rem;
+  color: var(--color-charcoal);
+}
+.polaroid-caption iconify-icon {
+  vertical-align: -2px;
+  color: var(--color-marker-orange);
+}
+.note-box h4 iconify-icon,
+.skill-card-badge iconify-icon,
+.project-preview-hint iconify-icon {
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+.skill-card-badge iconify-icon {
+  font-size: 1.15em;
+}
+.project-preview-icon iconify-icon {
+  font-size: 3.5rem;
+  color: var(--color-charcoal);
+}
+.nav-icon-btn iconify-icon {
+  font-size: 17px;
+}
+.scroll-top iconify-icon,
+.share-web iconify-icon {
+  font-size: 20px;
+}
+#footer-text iconify-icon {
+  vertical-align: -2px;
+}

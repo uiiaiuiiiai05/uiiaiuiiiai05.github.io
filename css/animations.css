@@ -1,0 +1,81 @@
+/* ==============================================
+   Superr Animations — Tactile Paper & Stickers
+   ============================================== */
+
+/* ── 1. Sticker Idle Float & Wobble (Fix Overlay Bug) ── */
+@keyframes sticker-float-1 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%      { transform: translateY(-8px) scale(1.03); }
+}
+
+@keyframes sticker-float-2 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%      { transform: translateY(6px) scale(0.97); }
+}
+
+@keyframes sticker-float-3 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%      { transform: translateY(-5px) scale(1.05); }
+}
+
+/* ล็อคให้การลอยทำงานได้อย่างนุ่มนวล ไม่ทับข้อความ */
+.sticker-lightning { animation: sticker-float-1 4s ease-in-out infinite; }
+.sticker-bear      { animation: sticker-float-2 4.5s ease-in-out infinite; }
+.sticker-heart     { animation: sticker-float-3 3.8s ease-in-out infinite; }
+
+/* ── 2. Click Confetti / Paper Sparkle ── */
+.click-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1.5px solid var(--color-charcoal);
+  z-index: 10000;
+  animation: paper-pop 0.65s ease-out forwards;
+}
+
+@keyframes paper-pop {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) rotate(180deg) scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* ── 3. Page Loader (Notebook Flip) ── */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--color-cream-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-notebook {
+  width: 48px;
+  height: 60px;
+  background: var(--color-marker-orange);
+  border: 2px solid var(--color-charcoal);
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 4px 4px 0px var(--color-charcoal);
+  animation: notebook-shake 1.2s ease-in-out infinite;
+}
+
+@keyframes notebook-shake {
+  0%, 100% { transform: rotate(-4deg); }
+  50%      { transform: rotate(6deg) translateY(-4px); }
+}

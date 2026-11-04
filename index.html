@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- กันแฟลชหน้าขาว: apply ธีมมืดก่อนหน้าเว็บวาดจอ -->
+  <script>try{if(localStorage.getItem('superr-theme')==='dark'||(!localStorage.getItem('superr-theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
+  <!-- Favicon (ไอคอนบนแท็บเบราว์เซอร์) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2218%22 fill=%22%23ff6f1e%22 stroke=%22%23171717%22 stroke-width=%226%22/><g transform=%22rotate(45 50 50)%22><rect x=%2242%22 y=%2216%22 width=%2216%22 height=%2248%22 fill=%22%23fdfbf9%22 stroke=%22%23171717%22 stroke-width=%224%22/><rect x=%2242%22 y=%2216%22 width=%2216%22 height=%2210%22 fill=%22%23facc15%22 stroke=%22%23171717%22 stroke-width=%224%22/><path d=%22M42 64 h16 l-8 16 z%22 fill=%22%23171717%22/></g></svg>">
+
+<!-- Meta OG Tags (ภาพและข้อความพรีวิวเมื่อนำลิงก์ไปแชร์ใน LINE / Facebook / LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pimphakan K. — UI/UX Design & Creative Development Portfolio">
+<meta property="og:description" content="พอร์ตโฟลิโอรวมผลงานการออกแบบ UI/UX และ Frontend Development ของพิมพกานต์ กลิ่นหอม">
+<meta property="og:image" content="https://raw.githubusercontent.com/uiiaiuiiiai05/uiiaiuiiiai05.github.io/main/assets/og-preview.png">
+<meta property="og:url" content="https://uiiaiuiiiai05.github.io">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pimphakan K. — UI/UX Design Portfolio">
+<meta name="twitter:description" content="พอร์ตโฟลิโอรวมผลงาน UI/UX และ Frontend Development">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>พิมพกานต์ กลิ่นหอม | Portfolio</title>
+  <meta name="description" content="Portfolio ของ พิมพกานต์ กลิ่นหอม — UI/UX Designer & Creative Developer (Superr Notebook Aesthetic)" />
+  <meta name="theme-color" content="#fdfbf9" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- Iconify (iconify-icon web component + ข้อมูลไอคอน mdi ฝังในเว็บ — ทำงานได้แม้ไม่มีเน็ต) -->
+  <script src="js/iconify-icon.min.js"></script>
+  <script src="js/icons.js"></script>
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-notebook"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand-mark">
+        <span class="hand-icon"><iconify-icon icon="mdi:hand-pointing-right"></iconify-icon></span>
+        <span>pk.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" id="nav-about">เกี่ยวกับฉัน</a></li>
+        <li><a href="#skills" id="nav-skills">ทักษะ</a></li>
+        <li><a href="#timeline" id="nav-timeline">ประสบการณ์</a></li>
+        <li><a href="#projects" id="nav-projects">ผลงาน</a></li>
+        <li><a href="#contact" id="nav-contact">ติดต่อ</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <!-- Theme Toggle (Dark/Light) -->
+        <button class="nav-icon-btn" id="theme-toggle" aria-label="สลับโหมดมืด/สว่าง" title="สลับโหมดมืด/สว่าง"><iconify-icon icon="mdi:weather-night"></iconify-icon></button>
+
+        <!-- Language Toggle Buttons with IDs -->
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="lang-th" data-lang="th">TH</button>
+          <button class="lang-btn" id="lang-en" data-lang="en">EN</button>
+        </div>
+
+        <!-- Hamburger (แสดงเฉพาะจอ < 840px) -->
+        <button class="nav-burger" id="nav-burger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <a href="#contact" class="btn btn-primary" style="padding: 6px 18px; font-size: 14px;">say hi!</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-text-col">
+          <div class="hero-handwritten-note">
+            <iconify-icon icon="mdi:star-four-points"></iconify-icon><span class="script-caption" id="hero-script-note">meet pimpakarn's portfolio</span>
+          </div>
+
+          <h1 class="hero-display-title lowercase-title" id="hero-name">
+            พิมพกานต์<br />กลิ่นหอม
+          </h1>
+
+          <p class="hero-description" id="hero-tagline">
+            นักศึกษาฝึกงานสาย <span class="marker-highlight">ui/ux design</span> และ creative development ที่หลงใหลการสร้างสรรค์ประสบการณ์ที่เรียบง่าย สวยงาม และใช้งานได้จริง
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-marker" id="hero-btn-work">
+              ดูผลงานทั้งหมด
+            </a>
+          </div>
+
+          <p class="hero-caption-note" id="hero-caption-note">
+            <iconify-icon icon="mdi:pencil"></iconify-icon> พร้อมสำหรับการเริ่มฝึกงานและเรียนรู้สิ่งใหม่ๆ เสมอ
+          </p>
+        </div>
+
+        <div class="hero-notebook-wrap">
+          <div class="sticker sticker-lightning"><iconify-icon icon="mdi:flash"></iconify-icon>superr!</div>
+          <div class="sticker sticker-bear"><iconify-icon icon="mdi:pencil-ruler"></iconify-icon>design</div>
+          <div class="sticker sticker-heart"><iconify-icon icon="mdi:heart"></iconify-icon>creative</div>
+
+          <div class="notebook-object">
+            <div class="notebook-ribbon"></div>
+
+            <div class="name-label-sticker">
+              <div class="sticker-header">internship notebook 2026</div>
+              <div class="sticker-field">
+                <span class="label">Name:</span>
+                <span class="value">Pimpakarn Klinhom</span>
+              </div>
+              <div class="sticker-field">
+                <span class="label">Role:</span>
+                <span class="value">Frontend-dev</span>
+              </div>
+              <div class="sticker-field">
+                <span class="label">Status:</span>
+                <span class="value">Open for learning!</span>
+              </div>
+            </div>
+
+            <div class="notebook-footer-tag">
+              craft & code.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section section-alt">
+    <div class="container">
+      <div class="about-grid">
+        <div data-aos="fade-right">
+          <div class="polaroid-frame">
+            <div class="polaroid-img-box">
+              <img src="assets/images/desk-flatlay.svg" alt="ภาพประกอบโต๊ะทำงานมุมมองด้านบน — สมุดสเก็ตช์ wireframe ปากกา กาแฟ โพสต์อิท แว่นตา สไตล์สมุดโน้ต" class="polaroid-photo" onerror="this.remove()" />
+              <iconify-icon icon="mdi:laptop"></iconify-icon>
+            </div>
+            <div class="polaroid-caption">pimpakarn in her zone <iconify-icon icon="mdi:palette"></iconify-icon></div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <span class="script-caption">about the designer</span>
+          <h2 class="section-title" style="text-align: left;" id="about-title">
+            เกี่ยวกับฉัน
+          </h2>
+          <p style="font-size: 1.1rem; margin-top: 16px; color: var(--color-charcoal);" id="about-desc">
+            ฉันเป็นนักศึกษาที่มีความหลงใหลใน UI/UX Design และ Frontend Development ชอบสร้างประสบการณ์ที่ดีให้กับผู้ใช้ผ่านการออกแบบที่สวยงามและมีประสิทธิภาพ ปัจจุบันกำลังฝึกงานและพัฒนาทักษะด้านการออกแบบและพัฒนาเว็บไซต์
+          </p>
+
+          <div class="about-facts-list">
+            <div class="fact-tag">
+              <iconify-icon icon="mdi:school" class="iconify"></iconify-icon>
+              <span id="fact-student">กำลังศึกษาอยู่</span>
+            </div>
+            <div class="fact-tag">
+              <iconify-icon icon="mdi:briefcase" class="iconify"></iconify-icon>
+              <span id="fact-intern">ฝึกงาน Internship</span>
+            </div>
+            <div class="fact-tag">
+              <iconify-icon icon="mdi:palette" class="iconify"></iconify-icon>
+              <span id="fact-creative">ชอบ Design & Creative</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="script-caption">what i work with</span>
+        <h2 class="section-title lowercase-title" id="skills-title">
+          ทักษะและเครื่องมือ
+        </h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-note-card">
+          <span class="skill-card-badge">UI/UX DESIGN</span>
+          <div class="skill-items-wrap">
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">User Research</span>
+            <span class="skill-pill">Wireframing</span>
+            <span class="skill-pill">Prototyping</span>
+          </div>
+        </div>
+        <div class="skill-note-card">
+          <span class="skill-card-badge">FRONTEND</span>
+          <div class="skill-items-wrap">
+            <span class="skill-pill">HTML5 / CSS3</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="section section-alt">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="script-caption">the journey so far</span>
+        <h2 class="section-title lowercase-title" id="timeline-title">
+          เส้นทางการเรียนรู้
+        </h2>
+      </div>
+
+      <div class="notebook-timeline">
+        <div class="timeline-entry">
+          <div class="timeline-date-tag">2024 - ปัจจุบัน</div>
+          <div class="timeline-box">
+            <h3 style="font-size: 1.2rem; margin-bottom: 6px;" id="timeline-item-title">ศึกษาด้านวิศวะกรรมซอฟแวร์ / คณะเทคโนโลยีสารสนเทศ</h3>
+            <p class="muted-text" style="font-size: 0.95rem;" id="timeline-item-desc">มุ่งเน้นการศึกษาด้านการออกแบบประสบการณ์ผู้ใช้ (UX/UI) และการพัฒนาส่วนหน้าของเว็บไซต์</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <span class="script-caption">selected works</span>
+        <h2 class="section-title lowercase-title" id="projects-title">
+          ผลงานที่ผ่านมา
+        </h2>
+      </div>
+
+      <div class="projects-grid" style="display: grid; grid-template-columns: 1fr; gap: 32px;">
+        
+        <!-- Project 1: Personal Portfolio (Internship Project #1) -->
+        <div class="project-card" style="flex-direction: column;">
+          <div class="project-preview">
+            <img src="assets/images/personal-portfolio.svg" alt="ภาพประกอบเว็บ Personal Portfolio — หน้าต่างเบราว์เซอร์แสดงหน้าแรกของเว็บ สไตล์ Superr Notebook" class="project-preview-img" onerror="this.remove()" />
+            <div class="project-preview-icon"><iconify-icon icon="mdi:palette"></iconify-icon></div>
+            <div class="project-preview-hint"><iconify-icon icon="mdi:content-cut"></iconify-icon> crafting in progress...</div>
+          </div>
+          <div class="project-details" style="width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <span class="skill-card-badge badge-amber" style="padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.75rem;"><iconify-icon icon="mdi:sprout"></iconify-icon> Internship Project #1</span>
+              <span class="sub-badge sub-badge--orange">AI-Assisted Workflow</span>
+            </div>
+
+            <h3 class="project-title" style="font-size: 1.5rem; margin-bottom: 8px;" id="proj-1-title">Personal Web Portfolio</h3>
+            <p class="project-desc" id="proj-1-desc" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+              ผลงานชิ้นแรกจากการฝึกงานที่ริเริ่มขึ้นตั้งแต่วันแรก โดยการนำเอาองค์ความรู้ เทคนิค และแนวทางการพัฒนาเว็บที่ได้รับจากพี่เลี้ยง มาถ่ายทอดเป็นโปรเจกต์จริงทันที พร้อมทั้งนำเทคโนโลยี AI Agent เข้ามาสเกลกระบวนการทำงานและช่วยแก้ปัญหาเชิงเทคนิคอย่างเป็นระบบ
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px;">
+              <div class="note-box note-box--amber">
+                <h4 style="font-size: 0.8rem; font-weight: bold; margin-bottom: 6px;"><iconify-icon icon="mdi:rocket-launch"></iconify-icon> กระบวนการเรียนรู้และการปรับใช้ (Execution)</h4>
+                <ul>
+                  <li><b>Fast Integration:</b> แปลงโจทย์และความรู้จากพี่เลี้ยงในวันแรก สู่การออกแบบ UI และโครงสร้างโค้ดจริง</li>
+                  <li><b>Modern UI/UX Design:</b> ออกแบบสไตล์ Neubrutalism ผสมผสาน Interactive Polaroid และ Responsive Navigation</li>
+                  <li><b>Form & Service Integration:</b> พัฒนา Contact Form เชื่อมต่อส่งข้อมูลเข้า Gmail จริงผ่าน Web3Forms API</li>
+                </ul>
+              </div>
+              <div class="note-box">
+                <h4 style="font-size: 0.8rem; font-weight: bold; margin-bottom: 6px;"><iconify-icon icon="mdi:robot"></iconify-icon> AI Agent Collaboration & Efficiency</h4>
+                <ul>
+                  <li><b>Co-Pilot Workflow:</b> ใช้ AI Agent ช่วยวางโครงสร้าง HTML/CSS และตรวจสอบ UI Consistency</li>
+                  <li><b>Rapid Problem Solving:</b> ใช้ AI ในการช่วยดีบักโค้ด JavaScript และตั้งค่าสภาพแวดล้อม WSL Debian</li>
+                  <li><b>Growth Mindset:</b> ฝึกฝนกระบวนการสืบค้นและสื่อสารสั่งการ AI (Prompt Engineering) ในงานพัฒนาเว็บ</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-bottom-wrap">
+              <div class="project-tags">
+                <span class="project-tag">HTML5</span>
+                <span class="project-tag">Tailwind CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Formspree API</span>
+                <span class="project-tag">WSL Debian</span>
+                <span class="project-tag">AI Agents</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/uiiaiuiiiai05" class="project-link-btn" target="_blank" rel="noopener">GitHub <iconify-icon icon="mdi:arrow-top-right"></iconify-icon></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: ระบบแจ้งซ่อมสุขาภิบาล คณะ ICT (Capstone Project) -->
+        <div class="project-card" style="flex-direction: column;">
+          <div class="project-preview">
+            <img src="assets/images/capstone-toilet-system.svg" alt="ภาพประกอบระบบแจ้งซ่อมสุขาภิบาล ICT — โทรศัพท์ LIFF, QR Code และห้องน้ำ โทนสีม่วง" class="project-preview-img" onerror="this.remove()" />
+            <div class="project-preview-icon"><iconify-icon icon="mdi:toilet"></iconify-icon></div>
+            <div class="project-preview-hint"><iconify-icon icon="mdi:content-cut"></iconify-icon> crafting in progress...</div>
+          </div>
+          <div class="project-details" style="width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <span class="skill-card-badge badge-sky" style="padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.75rem;"><iconify-icon icon="mdi:graduation-cap"></iconify-icon> Capstone Project</span>
+              <span class="sub-badge sub-badge--slate">LINE OA & LIFF Framework</span>
+            </div>
+
+            <h3 class="project-title" style="font-size: 1.5rem; margin-bottom: 8px;" id="proj-2-title">ICT Toilet Maintenance Report System</h3>
+            <p class="project-desc" id="proj-2-desc" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+              ระบบแจ้งซ่อมและติดตามสถานะงานสุขาภิบาลอัจฉริยะ ออกแบบมาเพื่อแก้ปัญหาความล่าช้าในการแจ้งซ่อมภายในคณะ ICT โดยผู้ใช้สามารถสแกน QR Code ประจำจุดเพื่อแจ้งซ่อมผ่าน LINE Official Account (LIFF) ได้ทันที โดยไม่ต้องดาวน์โหลดแอปพลิเคชันเพิ่มเติม พร้อมมีระบบบริหารจัดการสำหรับผู้ดูแลระบบและวิเคราะห์สถิติ
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 16px;">
+              <div class="note-box">
+                <h4 style="font-size: 0.8rem; font-weight: bold; margin-bottom: 4px;"><iconify-icon icon="mdi:target"></iconify-icon> PO & Scrum Master</h4>
+                <p>วางแผนกำหนดกรอบระยะเวลาพัฒนา (Sprint Planning), บริหารจัดการ Product Backlog และหมุนเวียนการทำหน้าที่ลีดเดอร์กำกับ workflow ทีม</p>
+              </div>
+              <div class="note-box">
+                <h4 style="font-size: 0.8rem; font-weight: bold; margin-bottom: 4px;"><iconify-icon icon="mdi:chart-bar"></iconify-icon> Business Analyst (BA)</h4>
+                <p>เก็บรวบรวม Requirement จากผู้ใช้งานจริง, จัดทำบันทึกการประชุม (Meeting Minutes) และสรุปโจทย์ทางธุรกิจเป็น Functional Spec</p>
+              </div>
+              <div class="note-box note-box--amber">
+                <h4 style="font-size: 0.8rem; font-weight: bold; margin-bottom: 4px;"><iconify-icon icon="mdi:laptop"></iconify-icon> Front-End Dev (User Side)</h4>
+                <p>พัฒนา UI บน LIFF Web App รองรับฟอร์มแจ้งซ่อม, แสดงพิกัดห้องน้ำ (Geolocation Mapping) และระบบติดตามสถานะแบบเรียลไทม์</p>
+              </div>
+            </div>
+
+            <div class="project-bottom-wrap">
+              <div class="project-tags">
+                <span class="project-tag">LIFF API</span>
+                <span class="project-tag">LINE Messaging API</span>
+                <span class="project-tag">HTML/CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Geolocation API</span>
+                <span class="project-tag">QR Code</span>
+                <span class="project-tag">AI Analytics</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/uiiaiuiiiai05/ICT-Restroom-Maintenance-System" class="project-link-btn" target="_blank" rel="noopener">GitHub <iconify-icon icon="mdi:arrow-top-right"></iconify-icon></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <span class="script-caption">say hello!</span>
+        <h2 class="section-title lowercase-title" id="contact-title">
+          มาคุยกันได้เลย
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+        <div data-aos="fade-right">
+          <p style="font-size: 1.1rem; margin-bottom: 24px;" id="contact-desc">
+            สนใจร่วมงาน แลกเปลี่ยนไอเดีย หรือมีคำถาม ติดต่อได้ทางนี้เลยนะคะ
+          </p>
+
+          <a href="https://github.com/uiiaiuiiiai05" class="social-pill-link" target="_blank" rel="noopener">
+            <iconify-icon icon="mdi:github" style="font-size: 20px; color: var(--color-marker-orange);"></iconify-icon>
+            <span>GitHub Profile</span>
+          </a>
+        </div>
+
+        <form id="contact-form" class="contact-card-box" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-left">
+          <!-- Web3Forms hidden fields -->
+          <input type="hidden" name="access_key" id="w3f-access-key" value="3e344d13-04ca-4428-a4d2-f3a229a634db" />
+          <input type="hidden" name="subject" value="ข้อความใหม่จากเว็บ Portfolio — Pimphakan Klinhom" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form-group">
+            <label class="form-label" for="contact-name" id="lbl-name">ชื่อของคุณ</label>
+            <input id="contact-name" class="form-input" type="text" name="name" placeholder="เช่น คุณสมชาย" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-email" id="lbl-email">อีเมลติดต่อ</label>
+            <input id="contact-email" class="form-input" type="email" name="email" placeholder="name@company.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-msg" id="lbl-msg">ข้อความ</label>
+            <textarea id="contact-msg" class="form-textarea" name="message" placeholder="อยากชวนคุยเรื่องอะไร เขียนไว้ได้เลยนะคะ..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-marker" id="contact-btn" style="width: 100%; justify-content: center; margin-top: auto;">
+            <span>ส่งข้อความ</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Band -->
+  <footer class="footer-brand-band">
+    <h3>we're done, and we had fun.</h3>
+    <p id="footer-text">designed & built with <iconify-icon icon="mdi:heart" style="color: var(--color-marker-orange);"></iconify-icon> by Pimphakan Klinhom · 2026</p>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <button id="scroll-top" class="scroll-top" aria-label="เลื่อนขึ้นด้านบน"><iconify-icon icon="mdi:arrow-up"></iconify-icon></button>
+  <button id="share-web" class="share-web" aria-label="คัดลอกลิงก์เว็บนี้"><iconify-icon icon="mdi:link-variant"></iconify-icon></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
