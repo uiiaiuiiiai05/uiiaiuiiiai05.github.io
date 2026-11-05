@@ -871,6 +871,11 @@ h1, h2, h3 {
   .about-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 
+  /* ปุ่ม say hi! — จอแคบไม่พอ ซ่อนไว้ (ลิงก์ติดต่ออยู่ในเมนู burger แล้ว) */
+  .nav-cta {
+    display: none;
+  }
+
   /* ปุ่มแฮมเบอร์เกอร์ — ใช้กรอบ/เงา/มุมโค้งชุดเดิมของ lang-toggle */
   .nav-burger {
     display: flex;
