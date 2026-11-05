@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initTypingCaption();
   initFloatingButtons();
+  initBrandPlay();
 });
 
 /* ── 7. Dark Mode (จำค่าไว้ใน localStorage) ── */
@@ -181,6 +182,50 @@ function initScrollSpy() {
 }
 
 /* ── 5. Contact Form — บริหารโดย js/language.js (Web3Forms AJAX) ── */
+
+/* ── 10. Brand Mark Playfulness (hover wiggle + click spin/confetti + idle wave) ── */
+function initBrandPlay() {
+  const brand = document.querySelector('.nav-brand-mark');
+  const hand = brand ? brand.querySelector('.hand-icon') : null;
+  if (!brand || !hand) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  brand.addEventListener('click', () => {
+    hand.classList.remove('brand-spinning');
+    void hand.offsetWidth;
+    hand.classList.add('brand-spinning');
+
+    const rect = hand.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const colors = ['#ff6f1e', '#171717', '#3b82f6', '#ff66cf', '#22c55e'];
+    for (let i = 0; i < 10; i++) {
+      const p = document.createElement('div');
+      p.className = 'click-particle';
+      const angle = (Math.PI * 2 * i) / 10;
+      const dist = 20 + Math.random() * 20;
+      p.style.left = `${cx}px`;
+      p.style.top = `${cy}px`;
+      p.style.backgroundColor = colors[i % colors.length];
+      p.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+      p.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 650);
+    }
+  });
+
+  hand.addEventListener('animationend', () => {
+    hand.classList.remove('brand-spinning', 'brand-idle');
+  });
+
+  const idleWiggle = () => {
+    hand.classList.remove('brand-idle');
+    void hand.offsetWidth;
+    hand.classList.add('brand-idle');
+    setTimeout(idleWiggle, 6000 + Math.random() * 2000);
+  };
+  setTimeout(idleWiggle, 4000);
+}
 
 function showToast(msg, type = 'success') {
   const toast = document.createElement('div');

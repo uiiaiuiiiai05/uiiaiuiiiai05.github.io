@@ -1226,3 +1226,34 @@ html.dark .polaroid-caption {
 #footer-text iconify-icon {
   vertical-align: -2px;
 }
+
+/* ── 19. Brand Mark Playfulness (hover wiggle + click spin + idle wave) ── */
+@keyframes brand-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-12deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-6deg); }
+}
+@keyframes brand-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.nav-brand-mark .hand-icon {
+  display: inline-flex;
+}
+.nav-brand-mark:hover .hand-icon {
+  animation: brand-wiggle 0.5s ease-in-out;
+}
+.nav-brand-mark .hand-icon.brand-spinning {
+  animation: brand-spin 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-brand-mark .hand-icon.brand-idle {
+  animation: brand-wiggle 0.6s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-brand-mark:hover .hand-icon,
+  .nav-brand-mark .hand-icon.brand-spinning,
+  .nav-brand-mark .hand-icon.brand-idle {
+    animation: none;
+  }
+}
