@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- กันแฟลชหน้าขาว: apply ธีมมืดก่อนหน้าเว็บวาดจอ -->
+  <script>try{if(localStorage.getItem('superr-theme')==='dark'||(!localStorage.getItem('superr-theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — หน้าหลุดจากสมุด | Pimphakan K.</title>
+  <meta name="description" content="หน้าที่ตามหาถูกฉีกออกจากสมุดโน้ตไปแล้ว — กลับไปหน้าแรกของพอร์ตโฟลิโอ" />
+  <meta name="theme-color" content="#fdfbf9" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2218%22 fill=%22%23ff6f1e%22 stroke=%22%23171717%22 stroke-width=%226%22/><g transform=%22rotate(45 50 50)%22><rect x=%2242%22 y=%2216%22 width=%2216%22 height=%2248%22 fill=%22%23fdfbf9%22 stroke=%22%23171717%22 stroke-width=%224%22/><rect x=%2242%22 y=%2216%22 width=%2216%22 height=%2210%22 fill=%22%23facc15%22 stroke=%22%23171717%22 stroke-width=%224%22/><path d=%22M42 64 h16 l-8 16 z%22 fill=%22%23171717%22/></g></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/iconify-icon.min.js"></script>
+  <script src="js/icons.js"></script>
+  <style>
+    .error-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .error-notebook {
+      position: relative;
+      max-width: 560px;
+      background: var(--color-dew-drop);
+      border: 2px solid var(--color-charcoal);
+      border-radius: var(--radius-cards);
+      box-shadow: var(--shadow-card);
+      padding: 56px 40px 48px;
+    }
+    .error-code {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(4.5rem, 14vw, 7rem);
+      line-height: 1;
+      color: var(--color-charcoal);
+      margin: 8px 0 4px;
+    }
+    .error-code .marker-highlight { padding: 0 8px; }
+    .error-script {
+      font-family: var(--font-handwritten);
+      font-size: 1.7rem;
+      color: var(--color-marker-orange);
+      transform: rotate(-2deg);
+      margin-bottom: 12px;
+    }
+    .error-desc {
+      color: var(--color-cocoa-ink);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 40ch;
+      margin: 0 auto 28px;
+    }
+    .error-sticker {
+      position: absolute;
+      top: -20px;
+      right: 24px;
+      transform: rotate(8deg);
+      background: var(--color-marker-orange);
+      color: var(--color-cream-paper);
+      border: 2px solid var(--color-charcoal);
+      border-radius: var(--radius-buttons);
+      box-shadow: var(--shadow-subtle);
+      padding: 6px 14px;
+      font-family: var(--font-handwritten);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .error-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <main class="error-hero">
+    <div class="error-notebook">
+      <span class="error-sticker"><iconify-icon icon="mdi:content-cut"></iconify-icon> oops!</span>
+
+      <p class="script-caption">page not found</p>
+      <h1 class="error-code"><span class="marker-highlight">404</span></h1>
+      <p class="error-script">หน้านี้หลุดออกจากสมุดไปแล้ว...</p>
+      <p class="error-desc">ดูเหมือนหน้าที่คุณตามหาจะถูกฉีกออกจากสมุดเล่มนี้ไป หรือไม่ได้ถูกเขียนไว้ตั้งแต่แรก — แต่ไม่เป็นไร เรากลับไปหน้าแรกกันเถอะ</p>
+
+      <div class="error-actions">
+        <a href="/" class="btn btn-marker"><iconify-icon icon="mdi:book-open-outline"></iconify-icon> กลับไปหน้าสมุด</a>
+        <a href="/#projects" class="btn btn-primary">ดูผลงานแทน</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
