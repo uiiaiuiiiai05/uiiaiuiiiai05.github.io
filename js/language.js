@@ -177,6 +177,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const payload = Object.fromEntries(new FormData(contactForm));
 
+      // Honeypot: ถ้าบอทกรอกช่อง botcheck ให้แสดงว่าส่งสำเร็จ แต่ไม่ส่งจริง
+      if (payload.botcheck) {
+        contactForm.reset();
+        if (btn) {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+        return;
+      }
+
       if ((payload.access_key || "").includes("YOUR_WEB3FORMS_ACCESS_KEY")) {
         if (typeof showToast === 'function') {
           showToast('<iconify-icon icon="mdi:key"></iconify-icon> ฟอร์มยังไม่พร้อมใช้งาน — ใส่ access_key จาก web3forms.io ที่ index.html ก่อนนะ', "error");

@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/aos.css" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" />
@@ -387,6 +387,8 @@
         <form id="contact-form" class="contact-card-box" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-left">
           <!-- Web3Forms hidden fields -->
           <input type="hidden" name="access_key" id="w3f-access-key" value="3e344d13-04ca-4428-a4d2-f3a229a634db" />
+          <!-- Honeypot กันบอทสแปม: บอทจะกรอกช่องนี้ (มนุษย์มองไม่เห็น) — Web3Forms จะทิ้งข้อความนั้นเอง -->
+          <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off" />
           <input type="hidden" name="subject" value="ข้อความใหม่จากเว็บ Portfolio — Pimphakan Klinhom" />
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
@@ -423,7 +425,7 @@
   <button id="scroll-top" class="scroll-top" aria-label="เลื่อนขึ้นด้านบน"><iconify-icon icon="mdi:arrow-up"></iconify-icon></button>
   <button id="share-web" class="share-web" aria-label="คัดลอกลิงก์เว็บนี้"><iconify-icon icon="mdi:link-variant"></iconify-icon></button>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/aos.js"></script>
   <script src="js/language.js"></script>
   <script src="js/main.js"></script>
 </body>
