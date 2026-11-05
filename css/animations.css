@@ -79,3 +79,7 @@
   0%, 100% { transform: rotate(-4deg); }
   50%      { transform: rotate(6deg) translateY(-4px); }
 }
+@keyframes toast-pop {
+  from { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+  to   { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
+}

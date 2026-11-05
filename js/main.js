@@ -232,17 +232,21 @@ function showToast(msg, type = 'success') {
   toast.innerHTML = msg;
   toast.style.cssText = `
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: ${type === 'error' ? '#ef4444' : '#171717'};
     color: #fdfbf9;
     border: 1.5px solid #171717;
-    padding: 12px 20px;
-    border-radius: 20px;
-    font-size: 0.95rem;
+    padding: 18px 32px;
+    border-radius: 22px;
+    font-size: 1.05rem;
     font-weight: 500;
     z-index: 10000;
-    box-shadow: 2px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 4px 6px 0px rgba(0,0,0,0.25);
+    animation: toast-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: min(90vw, 480px);
+    text-align: center;
   `;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 4000);
