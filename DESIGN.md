@@ -20,7 +20,7 @@
 | `css/animations.css` | แอนิเมชัน: สติกเกอร์ลอย, คอนเฟตติคลิก, page loader |
 | `js/main.js` | อินเทอร์แอกชัน: loader, AOS, ScrollSpy, เมนูมือถือ, คลิกสปาร์เคิล, `showToast` |
 | `js/language.js` | ระบบ 2 ภาษา TH/EN + ตัวส่งฟอร์ม (Web3Forms AJAX) |
-| `assets/` | ไฟล์แนบอื่น ๆ (ปัจจุบัน `images/` ว่าง) |
+| `assets/` | รูป/ไฟล์แนบ — ปัจจุบันมี `images/favicon.svg` (โลโก้แฮมสเตอร์), `images/desk-flatlay.svg` (ภาพใน polaroid) |
 
 ## 3. ลำดับชั้นหน้าเว็บ (Sections)
 
@@ -41,8 +41,8 @@ navbar (sticky + แฮมเบอร์เกอร์มือถือ .menu
 | :--- | :--- | :--- |
 | Web3Forms API | ส่งข้อความจากฟอร์มเข้า Gmail | `index.html` (hidden `access_key`) + `js/language.js` (fetch AJAX) |
 | Google Fonts | Fraunces / Kanit / Caveat | `<head>` ของ `index.html` |
-| AOS 2.3.4 (unpkg) | แอนิเมชันตอน scroll | `data-aos` attributes |
-| Iconify | ไอคอนทุกจุด | `<iconify-icon>` |
+| AOS 2.3.4 | แอนิเมชันตอน scroll | **self-host**: `css/aos.css` + `js/aos.js` (ย้ายจาก unpkg เพื่อความปลอดภัย) |
+| Iconify | ไอคอนทุกจุด | **self-host**: `js/iconify-icon.min.js` + `js/icons.js` (29 ไอคอนใน collection) |
 
 > ⚠️ Web3Forms ฟรีแพนรับเฉพาะการส่งจากเบราว์เซอร์ — อย่ายิงจาก curl/เซิร์ฟเวอร์ (จะโดนปฏิเสธ)
 
@@ -74,6 +74,11 @@ flowchart TD
 | 🔝 ปุ่มเลื่อนขึ้นบน | `main.js` initFloatingButtons | โผล่เมื่อ scroll > 600px |
 | 🔗 ปุ่มคัดลอกลิงก์เว็บ | `main.js` initFloatingButtons | มุมซ้ายล่าง, clipboard API |
 | 🖼️ กรอบพรีวิวการ์ดผลงาน | `index.html` (.project-preview) | ใส่รูปจริง: แทนเนื้อในด้วย `<img src="assets/images/ชื่อ.jpg" style="width:100%;height:100%;object-fit:cover;">` |
+| 🐹 โลโก้แฮมสเตอร์ + favicon | `index.html` (.nav-brand-mark), `assets/images/favicon.svg` | inline SVG อ้าง token แฮมสเตอร์ใน `:root` · animation: hover wiggle / กดหมุน+พลุ / โบกเองทุก 6-8 วิ (`main.js` initBrandPlay) |
+| 📄 หน้า 404 เฉพาะตัว | `404.html` | ธีมสมุดโน้ต "หน้านี้หลุดออกจากสมุด" — GitHub Pages เสิร์ฟอัตโนมัติ |
+| 🍯 Honeypot กันสแปม | `index.html` (input `botcheck`), `js/language.js` | บอทกรอกช่องซ่อน → Web3Forms ทิ้งข้อความ + JS แสดง success ปลอม |
+| 💬 Toast กลางจอ | `main.js` showToast, `css/animations.css` (toast-pop) | แจ้งผลฟอร์ม/การทำงานต่างๆ ตรงกลางจอพร้อม pop animation |
+| 📱 ซ่อนปุ่ม say hi! บนมือถือ | `index.html` (.nav-cta), `css/style.css` | จอ ≤840px ซ่อน CTA กัน navbar ล้น — ผู้ใช้ใช้เมนู burger แทน |
 
 ## 8. แผนอนาคต (ยังไม่ทำ)
 

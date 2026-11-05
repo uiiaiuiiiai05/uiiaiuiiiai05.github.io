@@ -18,6 +18,13 @@
   --color-sprout-sticker:     #22c55e;
   --color-shadow-mist:        #bebcbb;
 
+  /* Hamster mascot (โลโก้แฮมสเตอร์ใน navbar — favicon.svg เป็นไฟล์แยกจึงใช้ hex ในตัวเอง) */
+  --color-hamster-fur:        #f8ddb2;
+  --color-hamster-blush:      #ff9db8;
+  --color-seed-brown:         #8d5a3a;
+  --color-bow-rose:           #ff5d8f;
+  --color-spark-yellow:       #fde047;
+
   /* Typography */
   --font-display: 'Fraunces', 'Kanit', serif;
   --font-body:    'Kanit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
